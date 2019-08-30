@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+<form class="form-horizontal" action="#forms" id="accident-form">
+    <div class="form-group">
+        <label class="form-label" for="date-and-time"><span>a.</span> Date and time of the accident</label>
+        <input class="form-input" id="date-and-time" type="date" placeholder="2018-07-22">
+    </div>
+    <div class="form-group">
+        <label class="form-label" for="address-of-the-accident"><span>b.</span> Address of the accident, or approximate address</label>
+        <input class="form-input" name="address-of-the-accident" id="address-of-the-accident" cols="30" rows="3" placeholder="86 Lorem Street Lorem Ipsum, CA 123456">
+    </div>
+    <div class="form-group">
+        <label class="form-label" for="nearest-cross-street"><span>c.</span> Road you are on and the nearest cross street</label>
+        <input class="form-input" name="nearest-cross-street" id="nearest-cross-street" type="search" placeholder="Lorem Street, Ipsum Street">
+    </div>
+    <div class="form-group">
+        <label class="form-label" for="the-direction"><span>d.</span> The direction you were traveling in</label>
+        <input class="form-input" name="the-direction" id="the-direction" type="text" placeholder="Some direction">
+    </div>
+    <div class="form-group">
+        <label class="form-label" for="other-car"><span>e.</span> The direction the other car was traveling in</label>
+        <input class="form-input" name="other-car" id="other-car" type="text" placeholder="Some direction">
+    </div>
+    <div class="form-group">
+        <label class="form-label"><span>f.</span> Take photos from a few angles or sketch a diagram of the crash scene</label>
+    </div>
+    <div class="form-group">
+        <label class="form-label" for="what-happened"><span>g.</span> What happened (As soon as you can, write out your account of what happened, or use your mobile phone to record yourself telling all the details for your own records. It's easy to forget the details when you are all shaken up from a crash, so recording you talking about it might help).</label>
+        <textarea class="form-input" name="what-happened" id="what-happened" cols="30" rows="3" placeholder="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet blanditiis distinctio eaque esse molestiae"></textarea>
+
+    </div>
+    <div class="form-group">
+        <label class="form-label" for="notes-condition"><span>h.</span> Any notes regarding the driving conditions, the weather, visibility</label>
+        <input class="form-input" name="notes-condition" id="notes-condition" type="text" placeholder="Driving condition: lorem ipsum, weather: lorem ipsum, visiblity: lorem ipsum">
+    </div>
+    <div class="form-group">
+        <label class="form-label" for="contact-information"><span>i.</span> Any witnesses names and contact information</label>
+        <input class="form-input" name="contact-information" id="contact-information" type="text" placeholder="some witness' name and address">
+    </div>
+    <div class="form-group">
+        <label class="form-label" for="police-information"><span>j.</span> The name, badge number, and contact information for any police officer who came to the accident</label>
+        <input class="form-input" name="police-information" id="police-information" type="text" placeholder="Printed name, badge number, and department.">
+    </div>
+</form>
+
+<button onclick="fillRandomData()">Fill Demo Data</button>
+<button onclick="generatePdf()">Generate</button>
+<script type='text/javascript'
+        src='https://kuvaralawfirm.com/wp-content/cache/busting/1/wp-includes/js/jquery/jquery-1.12.4.js'></script>
+<script src="https://simonbengtsson.github.io/jsPDF-AutoTable/examples/libs/jspdf.debug.js"></script>
+<script src="https://simonbengtsson.github.io/jsPDF-AutoTable/dist/jspdf.plugin.autotable.js"></script>
+<script>
+
+</script>
+</body>
+</html>

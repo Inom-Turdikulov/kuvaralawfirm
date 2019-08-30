@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>HTML5 Media Device Access</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+
+        .panel-video {
+            position: relative;
+            height: 281px;
+            width: 500px;
+            background: #73AF96;
+            position: absolute;
+        }
+
+        .panel-video img {
+            opacity: .65;
+            width: 100%;
+        }
+
+        .panel-video:after{
+            background-color: rgba(0, 0, 0, 0.7);
+            display: block;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            content: '';
+            position: absolute;
+            z-index: 0;
+        }
+
+        .play {
+            line-height: 86px;
+            width: 120px;
+            position: absolute;
+            text-align: center;
+            cursor: pointer;
+            border-radius: 5px;
+            /*Centering*/
+
+            margin: -40px 0 0 -60px;
+            left: 50%;
+            top: 50%;
+            display: block;
+            background: #FA614D;
+            transition: background-color 0.5s ease;
+            color: white;
+            z-index: 1;
+        }
+
+        .play:hover {
+            background: #C31A1F;
+        }
+
+        .icon-play {
+            fill: #fff;
+            vertical-align: middle;
+            margin-top: -2px;
+        }
+    </style>
+</head>
+<body>
+
+
+<div class="panel-video">
+    <img src="./car.jpg">
+    <div class="play"><svg
+             class="icon-play"
+             version="1.0" xmlns="http://www.w3.org/2000/svg"
+             width="48" height="48" viewBox="0 0 1280.000000 1280.000000"
+             preserveAspectRatio="xMidYMid meet">
+
+            <g transform="translate(0.000000,1280.000000) scale(0.100000,-0.100000)" stroke="none">
+                <path d="M1607 6572 c2 -3100 3 -5639 3 -5641 0 -3 6 2 13 11 6 9 2305 1277
+5107 2818 2802 1541 5098 2805 5103 2809 4 4 -2282 1267 -5080 2806 -2799
+1540 -5101 2807 -5118 2817 l-30 17 2 -5637z"/>
+            </g>
+        </svg></div>
+</div>
+
+<button class="js-take-picture">Take Picture</button>
+
+<script>
+    (function() {
+        'use strict';
+        var video = document.querySelector('video')
+            , canvas;
+        var button = document.querySelector('.js-take-picture');
+
+        $('.play').click(function() {
+            video = '<iframe width="500" height="281" frameborder="0" src="' + $('img').attr('data-video') + '"></iframe>';
+            $('.panel-video').replaceWith(video);
+        });
+
+        /**
+         *  generates a still frame image from the stream in the <panel-video>
+         *  appends the image to the <body>
+         */
+        function takeSnapshot() {
+
+            // use MediaDevices API
+            // docs: https://developer.mozilla.org/en-US/docs/Web/API/MediaDevices/getUserMedia
+            if (navigator.mediaDevices) {
+                // access the web cam
+                navigator.mediaDevices.getUserMedia({video: true})
+                // permission granted:
+                    .then(function(stream) {
+                        video.srcObject = stream;
+                        var img = document.querySelector('img') || document.createElement('img');
+                        var context;
+                        var width = 200
+                            , height = parseInt((video.offsetHeight/video.offsetWidth) * width);
+
+                        canvas = canvas || document.createElement('canvas');
+                        canvas.width = width;
+                        canvas.height = height;
+
+                        context = canvas.getContext('2d');
+                        context.drawImage(video, 0, 0, width, height);
+
+                        img.src = canvas.toDataURL('image/png');
+                        document.body.appendChild(img);
+                    })
+                    // permission denied:
+                    .catch(function(error) {
+                        document.body.textContent = 'Could not access the camera. Error: ' + error.name;
+                    });
+            }
+        }
+
+        button.addEventListener('click', takeSnapshot);
+
+
+    })();
+
+</script>
+</body>
+</html>

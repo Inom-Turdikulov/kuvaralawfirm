@@ -1,0 +1,497 @@
+.spanel a:hover,
+.spanel a:focus{
+  color: #e95d35;
+}
+
+.spanel-w{
+  max-width: 612px;
+  width: 100%;
+  overflow: hidden;
+  margin: 0 auto;
+  border-radius: 8px;
+  position: relative;
+}
+
+.spanel{
+  width: 900%;
+  background-color: #0F3365;
+  color: #fff;
+  text-align: center;
+  font-weight: bold;
+  overflow: hidden;
+  position: relative;
+  transition: all .4s ease-in-out;
+}
+
+.spanel-title{
+  font-size: 1.8em;
+  max-width: 85%;
+  margin: 0 auto 30px;
+}
+
+.spanel-body{
+  text-align: justify;
+  max-width: 85%;
+  margin: 0 auto 30px;
+  font-size: 0.9em;
+}
+
+.spanel-container{
+  float: left;
+  width: calc(100%/9);
+  padding: 52px 15px;
+  position: relative;
+  overflow-y: auto;
+  max-height: 800px;
+}
+
+
+.spanel-button {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  border: 1px solid #C38401;
+  border-radius: 2px;
+  color: #fff;
+  background: #C38401;
+  cursor: pointer;
+  display: inline-block;
+  font-size: 1.2em;
+  line-height: 1.4;
+  outline: 0;
+  padding: 6px 40px;
+  text-align: center;
+  text-decoration: none;
+  transition: background .2s,border .2s,box-shadow .2s,color .2s;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  vertical-align: middle;
+  white-space: nowrap;
+  border-radius: 6px;
+  max-width: 50%;
+}
+
+.spanel-button svg{
+  vertical-align: top;
+  margin-top: 3px;
+  fill: #fff;
+}
+
+.spanel .spanel-button:focus,
+.spanel .spanel-button:hover,
+.spanel a.spanel-button:focus,
+.spanel a.spanel-button:hover {
+  background: #8c5e01;
+  border-color: #8c5e01;
+  text-decoration: none;
+  color: #fff;
+}
+
+
+.spanel-arrow{
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  border: 0;
+  background: transparent;
+  padding: 0;
+  position: absolute;
+  top: 15px;
+  left: 15px;
+}
+.spanel-arrow:focus,
+.spanel-arrow:hover {
+  color: #C38401;
+  background-color: transparent;
+  border: 0;
+}
+
+.spanel-arrow svg{
+  width: 22px;
+  height: 22px;
+  display: inline-block;
+  vertical-align: top;
+  fill: currentColor;
+  color: currentColor;
+}
+
+
+.spanel-progress {
+  width: 0;
+  height: 4px;
+  transition: all .2s ease-out;
+  background-color: #e95d35;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
+
+.spanel .form-label{
+  font-size: .8em;
+  margin-bottom: 4px;
+  color: #3cd593;
+  font-weight: normal;
+  text-align: left;
+  display: block;
+}
+
+.spanel .form-input {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background: #fff;
+  background-image: none;
+  border: 2px solid #fff;
+  border-radius: 2px;
+  display: block;
+  font-size: .9em;
+  line-height: 1.3;
+  max-width: 100%;
+  outline: 0;
+  padding: 4px 10px;
+  position: relative;
+  transition: background .2s,border .2s,box-shadow .2s,color .2s;
+  width: 100%;
+}
+
+.spanel .form-input:focus {
+  box-shadow: 0 0 0 1px rgba(233, 93, 53, 0.31);
+  border: 2px solid #e95d35;
+}
+
+.spanel .form-group{
+  margin-bottom: 10px;
+}
+
+
+
+
+
+
+
+.spanel .text-center{
+  text-align: center;
+}
+
+.spanel-footer .spanel-button + .spanel-button{
+  margin-left: 10px;
+}
+
+
+.spanel-button.danger{
+  background-color: #e95d35;
+  border-color: #e95d35;
+}
+
+.spanel-button.danger:hover,
+.spanel-button.danger:focus{
+  background-color: #a3492b;
+  border-color: #e95d35;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Dropdown select*/
+.spanel select.dropdown {
+  display: none !important;
+}
+
+.dropdown-select {
+  background-color: #fff;
+  border-radius: 2px;
+  border: solid 2px #fff;
+  cursor: pointer;
+  display: block;
+  float: left;
+  font-size: .9em;
+  line-height: 1.3;
+  outline: none;
+  padding: 4px 10px;
+  position: relative;
+  text-align: left !important;
+  white-space: nowrap;
+  width: auto;
+  color: #000000;
+  font-weight: normal;
+  margin-bottom: 10px;
+}
+
+.dropdown-select:active,
+.dropdown-select.open {
+  box-shadow: 0 0 0 1px rgba(233, 93, 53, 0.31);
+  border: 2px solid #e95d35;
+}
+
+.dropdown-select:after {
+  height: 0;
+  width: 0;
+  border-left: 4px solid transparent;
+  border-right: 4px solid transparent;
+  border-top: 4px solid #777;
+  -webkit-transform: origin(50% 20%);
+  transform: origin(50% 20%);
+  content: '';
+  display: block;
+  margin-top: -2px;
+  pointer-events: none;
+  position: absolute;
+  right: 10px;
+  top: 50%;
+}
+
+.dropdown-select.open:after {
+  -webkit-transform: rotate(-180deg);
+  transform: rotate(-180deg);
+}
+
+.dropdown-select.open .list {
+  -webkit-transform: scale(1);
+  transform: scale(1);
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.dropdown-select.open .option {
+  cursor: pointer;
+}
+
+.dropdown-select.wide {
+  width: 100%;
+}
+
+.dropdown-select.wide .list {
+  left: 0 !important;
+  right: 0 !important;
+}
+
+.dropdown-select .list {
+  box-sizing: border-box;
+  -webkit-transform: scale(0.75);
+  transform: scale(0.75);
+  -webkit-transform-origin: 50% 0;
+  transform-origin: 50% 0;
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.09);
+  background-color: #fff;
+  border-radius: 6px;
+  margin-top: 4px;
+  padding: 3px 0;
+  opacity: 0;
+  overflow: hidden;
+  pointer-events: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  z-index: 999;
+  max-height: 250px;
+  overflow: auto;
+  border: 1px solid #ddd;
+}
+
+.dropdown-select .list:hover .option:not(:hover) {
+  background-color: transparent !important;
+}
+.dropdown-select .dd-search{
+  overflow:hidden;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  margin:0.5rem 10px;
+}
+
+.dropdown-select .dd-searchbox{
+  width:100%;
+  padding:0.5rem 10px;
+  border:1px solid #999;
+  border-color:#999;
+  border-radius:4px;
+  outline:none;
+}
+.dropdown-select .dd-searchbox:focus{
+  border-color:#12CBC4;
+}
+
+.dropdown-select .list ul {
+  padding: 0;
+}
+
+.dropdown-select .option {
+  cursor: default;
+  font-weight: 400;
+  line-height: 40px;
+  outline: none;
+  padding-left: 10px;
+  padding-right: 10px;
+  text-align: left;
+  list-style: none;
+}
+
+.dropdown-select .option:hover,
+.dropdown-select .option:focus {
+  background-color: #f6f6f6 !important;
+}
+
+.dropdown-select .option.selected {
+  font-weight: 600;
+  color: #12cbc4;
+}
+
+.dropdown-select .option.selected:focus {
+  background: #f6f6f6;
+}
+
+.dropdown-select a {
+  color: #aaa;
+  text-decoration: none;
+}
+
+.dropdown-select a:hover {
+  color: #666;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Panel video */
+.panel-video {
+  position: relative;
+  width: 100%;
+  background: #73AF96;
+  overflow: hidden;
+  margin-bottom: 10px;
+  line-height: 0;
+}
+
+.panel-video video,
+.panel-video img {
+  width: 100%;
+  height: auto;
+}
+
+.panel-video:after{
+  background: rgba(0, 0, 0, 0.7) url('car.jpg') 0 0 no-repeat;
+  background-size: cover;
+  display: block;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  content: '';
+  position: absolute;
+  z-index: 0;
+}
+
+.panel-video .play {
+  position: absolute;
+  text-align: center;
+  cursor: pointer;
+  border-radius: 5px;
+  /*Centering*/
+
+  right: 10px;
+  top: 10px;
+  display: block;
+  background: #FA614D;
+  transition: opacity 0.5s ease;
+  color: white;
+  z-index: 1;
+  text-transform: uppercase;
+  padding: 10px;
+  line-height: normal;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  opacity: .3;
+}
+
+.panel-video .play:hover,
+.panel-video .play:focus {
+  background: #C31A1F;
+  opacity: 1;
+}
+
+.panel-video .play svg {
+  fill: #fff;
+}
+
+.panel-video video{
+  position: relative;
+  z-index: 1;
+}
+
+
+.panel-thumbnails{
+  overflow: hidden;
+  margin-left: -0.5%;
+  margin-right: -0.5%;
+}
+
+.panel-thumbnails img{
+  width: 24%;
+  height: auto;
+  float: left;
+}
+
+.panel-thumbnails img{
+  margin: 0.5%;
+}
+
+.is-active{
+  opacity: 1;
+  transition: all .4s ease-in-out;
+  z-index: 2;
+}
+
+
+.spanel-map{
+  width: 100%;
+  position: relative;
+}
+
+.spanel-map:before{
+  display: block;
+  content: "";
+  width: 1px;
+  margin-left: -1px;
+  float: left;
+  height: 0;
+  padding-top: 56.25%;
+}
+
+

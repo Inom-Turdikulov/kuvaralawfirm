@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>PDF Flyer generator</title>
+  
+<link rel='stylesheet' href='http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css'>
+<link rel="stylesheet" href="./style.css">
+</head>
+<body>
+<!-- partial:index.partial.html -->
+<div class="container-fluid flyer-builder">
+		<h1>Flyer Builder</h1>
+		<p><em>The preview doesn't work  with Chrome or Safari in this demo since it has been loaded in a iframe. Use Firefox or try at <a href="http://www.primominuto.net/articoli/pdf_flyer/flyer.html">www.primominuto.net/articoli/pdf_flyer/flyer.html</a></em></p>
+
+		<form class="form-horizontal" action="#forms">
+			<div class="form-group">
+				<label class="form-label" for=" Date and time">a. Date and time of the accident</label>
+				<input class="form-input" id=" Date and time" type="date">
+			</div>
+			<div class="form-group">
+				<label class="form-label" for="Address of the accident">b. Address of the accident, or approximate address</label>
+				<input class="form-input" name="Address of the accident" id="Address of the accident" cols="30" rows="3" placeholder="9969 Some Street, Post Code">
+			</div>
+			<div class="form-group">
+				<label class="form-label" for="nearest cross street">c. Road you are on and the nearest cross street</label>
+				<input class="form-input" id="nearest cross street" type="search" placeholder="Some Street">
+			</div>
+			<div class="form-group">
+				<label class="form-label" for="The direction ">d. The direction you were traveling in</label>
+				<input class="form-input" id="The direction " type="text" placeholder="horizontal... or perpendicular..., etc">
+			</div>
+			<div class="form-group">
+				<label class="form-label" for="other car">e. The direction the other car was traveling in</label>
+				<input class="form-input" id="other car" type="text" placeholder="horizontal... or perpendicular..., etc">
+			</div>
+			<div class="form-group">
+				<label class="form-label" for="input-example-13">f. Take photos from a few angles or sketch a diagram of the crash scene</label>
+			</div>
+			<div class="form-group">
+				<label class="form-label" for="input-example-14">g. What happened (As soon as you can, write out your account of what happened,
+					or use your mobile phone to record yourself telling all the details for your own
+					records. It's easy to forget the details when you are all shaken up from a crash,
+					so recording you talking about it might help).</label>
+				<textarea class="form-input" name="Address of the accident" id="Address of the accident" cols="30" rows="3" placeholder="9969 Some Street, Post Code"></textarea>
+			</div>
+			<div class="form-group">
+				<label class="form-label" for="input-example-15">h. Any notes regarding the driving conditions, the weather, visibility</label>
+				<input class="form-input" id="The direction " type="text">
+			</div>
+			<div class="form-group">
+				<label class="form-label" for="input-example-16">i. Any witnesses names and contact information</label>
+				<input class="form-input" id="input-example-16" type="text">
+			</div>
+			<div class="form-group">
+				<label class="form-label" for="input-example-16">j. The name, badge number, and contact information for any police officer who
+					came to the accident</label>
+				<input class="form-input" id="input-example-16" type="text">
+			</div>
+		</form>
+
+		<div class="row">
+				<div class="col-sm-6 loc_form">
+						<div class="form-group">
+							<label for="flyer-image" class="control-label">Image</label>
+							<input id="flyer-image" type="file" tabindex="1">
+						</div>
+						<div class="form-group">
+								<label class="control-label" for="flyer-description">Description</label>
+								<textarea class="form-control" id="flyer-description" placeholder="Insert a short description taking care of the available space">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nemo, nihil officia neque ad expedita consequatur quae! Voluptate, incidunt, earum, sit, eveniet harum ratione expedita quibusdam possimus sed laboriosam dolore ut recusandae eos. Ipsa,natus pariatur iste dolorum optio nostrum consectetur!</textarea>
+						</div>
+						<div class="row">
+								<div class="col-sm-6">
+										<div class="form-group">
+												<button id="flyer_preview_btn" type="button" class="btn btn-primary btn-block" tabindex="9">Update preview</button>
+										</div>
+								</div>
+								<div class="col-sm-6">
+										<div class="form-group text-right">
+												<button id="flyer_download_btn" type="button" class="btn btn-default btn-xs btn-block" tabindex="10">Download</button>
+										</div>
+								</div>
+						</div>
+
+				</div>
+
+				<div class="col-sm-6">
+						<iframe id="pdf_preview" type="application/pdf" src=""></iframe>
+				</div>
+
+		</div>
+</div>
+<!-- partial -->
+<script type='text/javascript'
+		src='https://kuvaralawfirm.com/wp-content/cache/busting/1/wp-includes/js/jquery/jquery-1.12.4.js'></script>
+
+<script src='http://cdnjs.cloudflare.com/ajax/libs/jspdf/1.0.272/jspdf.debug.js'></script>
+<script  src="./script.js"></script>
+
+</body>
+</html>
