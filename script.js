@@ -6,21 +6,37 @@ var $witnessClone = $('#clone-form-group');
 var containersLength = $('.js-container').length - 1;
 
 $( document ).ready(function() {
-    $wrapper.height($('.js-container:first').outerHeight());
+    // listen to events...
+    $('.js-container').not(':first-child').css('height', 0);
+
+    function slideRight(el){
+        $('.js-container').not($(el).closest('.js-container').next()).css('height', 0);
+        $(el).closest('.js-container').next().css('height', 'auto');
+
+        var offset = -100 * ($(el).closest('.js-container').index() + 1);
+        if (offset >  -100 * ($('.js-container').length + 1) ){
+            $wrapper.css('margin-left', offset + '%');
+            progress($(el).closest('.js-container').index());
+        }
+    }
+
+    function slideLeft(el){
+        $('.js-container').not($(el).closest('.js-container').prev()).css('height', 0);
+        $(el).closest('.js-container').prev().css('height', 'auto');
+
+        var offset = -100 * ($(el).closest('.js-container').index() + 1) + 200;
+        if (offset < 100) {
+            $wrapper.css('margin-left', offset + '%');
+            progress($(el).closest('.js-container').index() - 2);
+        }
+    }
 
     $nextButton.on('click', function (e) {
-        var offset = -100 * ($(this).closest('.js-container').index() + 1);
-        $wrapper.css('margin-left', offset + '%');
-        progress($(this).closest('.js-container').index());
-        $wrapper.animate({height:$(this).closest('.js-container').next().outerHeight()},200);
-
+        slideRight(e.target);
     });
 
     $prevButton.on('click', function (e) {
-        var offset = -100 * ($(this).closest('.js-container').index() + 1) + 200;
-        $wrapper.css('margin-left', offset + '%');
-        $wrapper.animate({height:$(this).closest('.js-container').prev().outerHeight()},200);
-        progress($(this).closest('.js-container').index() - 2);
+        slideLeft(e.target);
     });
 });
 
@@ -296,11 +312,9 @@ $('.js-take-picture').click(function(e) {
         $(this).data('init', true);
         $(this).text('Take a Picture');
         initVideo();
-        $wrapper.height($(this).closest('.js-container').outerHeight());
     }
     else{
         getScreenshoot();
-        $wrapper.height($(this).closest('.js-container').outerHeight());
     }
 });
 
@@ -382,7 +396,6 @@ $witnessClone.click(function (e) {
         .appendTo('#witness-group');
 
     fillPlaceholder(wintessBaseIndex, $newFormGroup);
-    $wrapper.height($(this).closest('.js-container').outerHeight());
 });
 
 // auto-hide dropdown
