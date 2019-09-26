@@ -382,6 +382,7 @@ $witnessClone.click(function (e) {
         .appendTo('#witness-group');
 
     fillPlaceholder(wintessBaseIndex, $newFormGroup);
+    $wrapper.height($(this).closest('.js-container').outerHeight());
 });
 
 // auto-hide dropdown
