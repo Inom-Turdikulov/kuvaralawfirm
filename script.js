@@ -177,8 +177,6 @@ $.getScript("https://maps.googleapis.com/maps/api/js?key=AIzaSyC-z2wEoAvxE66SgiL
     }
 
     function initMaps(pos){
-        console.log(pos)
-
         if (!pos){
             alert('We can\'t detect your location! Map function will be disabled!')
         }
