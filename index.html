@@ -7,10 +7,10 @@
         data-minify="1"/>
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <link rel='stylesheet' id='altitude-google-fonts-css'
-        href='//fonts.googleapis.com/css?family=Open+Sans%3A400%2C400i%2C700%7CPT+Sans%3A400%2C400i%2C700&#038;ver=1.1.3'
+        href='https://fonts.googleapis.com/css?family=Open+Sans%3A400%2C400i%2C700%7CPT+Sans%3A400%2C400i%2C700&#038;ver=1.1.3'
         type='text/css' media='all'/>
   <link rel='stylesheet' id='font-awesome-css'
-        href='//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css?ver=5.1.1' type='text/css'
+        href='https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css?ver=5.1.1' type='text/css'
         media='all'/>
   <script type='text/javascript'
           src='https://kuvaralawfirm.com/wp-content/cache/busting/1/wp-includes/js/jquery/jquery-1.12.4.js'></script>
@@ -43,13 +43,7 @@
         <div class="spanel-container js-container">
           <div class="spanel-title">Step 1: Document The Crash</div>
           <div class="spanel-body">
-              <p>You’re going to want records and accounts documenting the crash. You’ll need this for
-                  insurance, but you’ll also need records to provide to a lawyer if you decide to obtain legal help.
-              </p>
-              <p>If you type up all of this information in the form below, we’ll save it as a pdf you can download. If not, you don’t want to do that, you can skip to the next step.
-                  </p>
-
-              <p>Information you’ll want to document includes:</p>
+              <p>If you type up all of this information in the form below, we’ll save it as a pdf you can download. If not, you don’t want to do that, you can skip to the next step.</p>
 
               <form class="form-horizontal" action="#forms" id="accident-form">
                   <div class="form-group">
@@ -84,17 +78,26 @@
                       <label class="form-label" for="notes-condition"><span>h.</span> Any notes regarding the driving conditions, the weather, visibility</label>
                       <input class="form-input" name="notes-condition" id="notes-condition" type="text" placeholder="Driving condition: lorem ipsum, weather: lorem ipsum, visiblity: lorem ipsum">
                   </div>
-                  <div class="form-group">
-                      <label class="form-label" for="contact-information"><span>i.</span> Any witnesses names and contact information</label>
-                      <input class="form-input" name="contact-information" id="contact-information" type="text" placeholder="some witness' name and address">
+                  <div id="witness-group">
+                      <label class="form-label" for="witness-name-1"><span>i.</span> Any witnesses names and contact information</label>
+                      <div class="form-group" id="witness-1">
+                          <input class="form-input" name="contact-information" id="witness-name-1" type="text" placeholder="witness' name">
+                          <textarea class="form-input mt-4" name="what-happened" id="witness-address-1" cols="30" rows="2" placeholder="witness' address"></textarea>
+                      </div>
                   </div>
+                  <p class="text-right mt-4 mb-4">
+                      <button class="spanel-button sm" id="clone-form-group" data-form-group="#witness-1"><i class="fa fa-plus" aria-hidden="true"></i> Add more witnesses</button>
+                  </p>
                   <div class="form-group">
-                      <label class="form-label" for="police-information"><span>j.</span> The name, badge number, and contact information for any police officer who came to the accident</label>
-                      <input class="form-input" name="police-information" id="police-information" type="text" placeholder="Printed name, badge number, and department.">
+                      <label class="form-label" for="police-name"><span>j.</span> The name, badge number, and contact information for any police officer who came to the accident</label>
+                      <div class="spanel-row">
+                          <div class="form-group-col col-4"><input class="form-input" name="police-name" id="police-name" type="text" placeholder="Name"></div>
+                          <div class="form-group-col col-4"><input class="form-input" name="police-badge-number" id="police-badge-number" type="text" placeholder="badge number"></div>
+                          <div class="form-group-col col-4"><input class="form-input" name="police-department" id="police-department" type="text" placeholder="department"></div>
+                      </div>
                   </div>
               </form>
-              <button id="fillRandomData">Fill Demo Data</button>
-              <button id="generatePDF">Generate</button>
+              <button class="spanel-button sm transparent" id="fillRandomData">Fill Demo Data</button>
           </div>
           <div class="spanel-footer">
             <button class="spanel-button js-next">Next</button>
@@ -120,10 +123,8 @@
                       Access Camera
                   </div>
               </div>
-
               <div class="panel-thumbnails">
               </div>
-
           </div>
           <div class="spanel-footer">
             <button class="spanel-button js-next js-init-map">Next</button>
@@ -143,7 +144,13 @@
                 below to find a doctor nearby in your area.
             </p>
 
-            <div id="map-doctor" class="spanel-map" data-place="hospital"></div>
+          <div class="form-group">
+              <label class="form-label" for="see-a-doctor">
+                <input class="form-input" name="see-a-doctor" id="see-a-doctor" type="text" value="Doctors" placeholder="enter search query">
+              </label>
+          </div>
+
+            <div id="map-doctor" class="spanel-map"></div>
 
           </div>
           <div class="spanel-footer">
@@ -160,7 +167,12 @@
                 If your vehicle is damaged, you’ll want to find a reputable repair shop to work with. We’ve done
                 the heavy lifting and have pulled a few good repair shops near you in the map below.
             </p>
-              <div id="map-repair" class="spanel-map" data-place="car_repair"></div>
+              <div class="form-group">
+                  <label class="form-label" for="car-repair">
+                      <input class="form-input" name="car-repair" id="car-repair" type="text" value="Car repair" placeholder="enter search query">
+                  </label>
+              </div>
+              <div id="map-repair" class="spanel-map"></div>
           </div>
           <div class="spanel-footer">
             <button class="spanel-button js-next">Next</button>
@@ -241,8 +253,9 @@
           </div>
             <div class="spanel-footer text-center">
                 <a class="spanel-button danger" href="#">Contact</a>
-                <a class="spanel-button" href="#">Download PDF</a>
             </div>
+            <br>
+            <button id="generateFullPDF" class="spanel-button sm">Download Car Accident Details PDF</button>
             <button class="spanel-arrow js-prev">
                 <svg width="100%" height="100%" viewBox="0 0 493 409" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;"><path d="M464.344,165.744l0.768,0.168l-329.224,0l103.496,-103.724c5.068,-5.064 7.848,-11.924 7.848,-19.124c0,-7.2 -2.78,-14.012 -7.848,-19.088l-16.104,-16.112c-5.064,-5.064 -11.812,-7.864 -19.008,-7.864c-7.2,0 -13.952,2.78 -19.016,7.844l-177.412,177.396c-5.084,5.084 -7.864,11.856 -7.844,19.06c-0.02,7.244 2.76,14.02 7.844,19.096l177.412,177.412c5.064,5.06 11.812,7.844 19.016,7.844c7.196,0 13.944,-2.788 19.008,-7.844l16.104,-16.112c5.068,-5.056 7.848,-11.808 7.848,-19.008c0,-7.196 -2.78,-13.592 -7.848,-18.652l-104.664,-104.304l329.992,0c14.828,0 27.288,-12.78 27.288,-27.6l0,-22.788c0,-14.82 -12.828,-26.6 -27.656,-26.6Z" style="fill-rule:nonzero;"/></svg>
             </button>
@@ -256,106 +269,9 @@
 </div>
 </div>
 
-<script src="https://simonbengtsson.github.io/jsPDF-AutoTable/examples/libs/jspdf.debug.js"></script>
-<script src="https://simonbengtsson.github.io/jsPDF-AutoTable/dist/jspdf.plugin.autotable.js"></script>
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC-z2wEoAvxE66SgiLPnXosuzq3Tl_O-2s&libraries=places&callback=initMap" async defer></script>
-<!-- partial -->
-<script  src="./script.js"></script>
-
-<script>
-
-
-
-
-    function initPlacesMap(id) {
-        // Google map
-        var map;
-        var infoWindow;
-        var markers = [];
-
-
-
-        infoWindow = new google.maps.InfoWindow;
-
-        var placeStr = document.getElementById(id).dataset.place;
-
-
-        // Try HTML5 geolocation.
-        if (navigator.geolocation) {
-            navigator.geolocation.getCurrentPosition(function(position) {
-                var pos = {
-                    lat: position.coords.latitude,
-                    lng: position.coords.longitude
-                };
-
-                map = new google.maps.Map(document.getElementById(id), {
-                    center: pos,
-                    zoom: 14
-                });
-
-                callService( map, placeStr, pos);
-
-            }, function() {
-                handleLocationError(true, infoWindow, map.getCenter());
-            });
-        } else {
-            // Browser doesn't support Geolocation
-            handleLocationError(false, infoWindow, map.getCenter());
-        }
-
-        function callback(results, status) {
-            if (status === google.maps.places.PlacesServiceStatus.OK) {
-                for (var i = 0; i < results.length; i++) {
-                    createMarker(results[i]);
-                }
-            }
-        }
-
-        function createMarker(place) {
-            var placeLoc = place.geometry.location;
-            var marker = new google.maps.Marker({
-                map: map,
-                position: place.geometry.location,
-                title: place.name
-            });
-            markers.push(marker);
-        }
-
-        function callService( map, place, pos) {
-            var service = new google.maps.places.PlacesService(map);
-            service.nearbySearch({
-                location: pos,
-                radius: 1000,
-                type: [place]
-            }, callback);
-        }
-
-        function clearMarker() {
-            for( var i = 0; i < markers.length; i++ ) {
-                markers[i].setMap(null);
-            }
-        }
-
-
-        function handleLocationError(browserHasGeolocation, infoWindow, pos) {
-            infoWindow.setPosition(pos);
-            infoWindow.setContent(browserHasGeolocation ?
-                'Error: The Geolocation service failed.' :
-                'Error: Your browser doesn\'t support geolocation.');
-            infoWindow.open(map);
-        }
-    }
-
-
-
-
-
-
-    function initMap(){
-        initPlacesMap('map-doctor');
-        initPlacesMap('map-repair');
-    }
-</script>
+<script src="https://simonbengtsson.github.io/jsPDF-AutoTable/examples/libs/jspdf.debug.js" defer></script>
+<script src="https://simonbengtsson.github.io/jsPDF-AutoTable/dist/jspdf.plugin.autotable.js" defer></script>
+<script src="./script.js" defer></script>
 
 </body>
 </html>

@@ -1,3 +1,50 @@
+.spanel-row{
+  margin-left: -10px;
+  margin-right: -10px;
+}
+
+.spanel .mt-4{
+  margin-top: 4px;
+}
+.spanel .mb-4{
+  margin-bottom: 4px;
+}
+
+.spanel .no-margin{
+  margin: 0;
+}
+
+.spanel-container:before,
+.spanel-container:after,
+.spanel-row:before,
+.spanel-row:after {
+  content: " "; /* 1 */
+  display: table; /* 2 */
+}
+
+.spanel-container:after,
+.spanel-row:after {
+  clear: both;
+}
+
+.spanel .form-group-col{
+  float: left;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.spanel .form-group-col.col-2{
+  width: 16.66%;
+}
+
+.spanel .form-group-col.col-4{
+  width: 33.33%;
+}
+
+.spanel .form-group-col.col-6{
+  width: 50%;
+}
+
 .spanel a:hover,
 .spanel a:focus{
   color: #e95d35;
@@ -18,8 +65,8 @@
   color: #fff;
   text-align: center;
   font-weight: bold;
-  overflow: hidden;
   position: relative;
+  overflow: hidden;
   transition: all .4s ease-in-out;
 }
 
@@ -31,9 +78,15 @@
 
 .spanel-body{
   text-align: justify;
-  max-width: 85%;
   margin: 0 auto 30px;
-  font-size: 0.9em;
+  font-size: 0.88em;
+  padding-left: 7%;
+  padding-right: 7%;
+}
+
+.spanel-body.padded{
+  padding-top: 2em;
+  padding-bottom: 2em;
 }
 
 .spanel-container{
@@ -41,8 +94,6 @@
   width: calc(100%/9);
   padding: 52px 15px;
   position: relative;
-  overflow-y: auto;
-  max-height: 800px;
 }
 
 
@@ -73,10 +124,25 @@
   max-width: 50%;
 }
 
+.spanel-button.transparent,
+.spanel-button.transparent:focus,
+.spanel-button.transparent:hover{
+  background-color: transparent;
+  border: 0;
+}
+
 .spanel-button svg{
   vertical-align: top;
   margin-top: 3px;
   fill: #fff;
+}
+
+.spanel-button.sm{
+  padding: 4px;
+  font-size: 0.9em;
+  font-weight: normal;
+  border-radius: 2px;
+  max-width: none;
 }
 
 .spanel .spanel-button:focus,
@@ -169,14 +235,22 @@
 
 
 
-
-
+.spanel .text-left{
+  text-align: left;
+}
+.spanel .text-right{
+  text-align: right;
+}
 .spanel .text-center{
   text-align: center;
 }
 
 .spanel-footer .spanel-button + .spanel-button{
   margin-left: 10px;
+}
+
+.spanel-footer{
+  padding-bottom: 10px;
 }
 
 
